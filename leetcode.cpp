@@ -12,7 +12,7 @@
 #include <cassert>
 #include <sstream>
 
-#include "two_sum.h"
+#include "functions.h"
 
 using std::cout;
 using std::string;
@@ -42,5 +42,10 @@ int main() {
     vector<int> nums = {2, 7, 11, 15};
     auto target = 9;
     const auto indices = twoSum(nums, target);
-    cout << indices[0] << "\n" << indices[1] << "\n";
+    cout << indices[0] << ", " << indices[1] << "\n";
+
+    cout << isPalindrome(121) << "\n"; // true
+    cout << isPalindrome(1217) << "\n"; // false
+    cout << isPalindrome(1111) << "\n"; // true
+    cout << isPalindrome(766) << "\n"; // false
 }

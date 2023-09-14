@@ -56,6 +56,23 @@ vector<int> twoSum(vector<int>& nums, const int target) {
     return {};
 }
 
+bool isPalindrome(int x) {
+    const auto chars = std::to_string(x);
+    auto left = chars.begin();
+    auto right = chars.end() - 1;
+
+    while (left < right) {
+        if (*left != *right) {
+            return false;
+        }
+        // for performance
+        ++left;
+        --right;
+    }
+
+    return true;
+}
+
 /*
   The use of static_assert along with std::is_arithmetic does not incur a runtime performance penalty. This is because these checks occur at compile-time, not at runtime.
 
