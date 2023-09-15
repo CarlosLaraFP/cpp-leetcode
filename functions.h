@@ -27,6 +27,7 @@
 #include <type_traits>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 using std::cout;
 using std::vector;
@@ -71,6 +72,24 @@ bool isPalindrome(int x) {
     }
 
     return true;
+}
+
+int removeDuplicates(vector<int>& nums) {
+    // O(N)
+    // Input: nums = [1,1,2]
+    // Output: 2, nums = [1,2,_]
+
+    // [1, 2, 3, 4, 5]
+    // [1, 2, 3, 3, 3, 3, 8]
+
+    /*
+        "unique" reorders the elements of the vector such that all unique elements come before the duplicates, 
+        and it returns an iterator pointing to the position after the last unique element.
+        Note that only consecutive duplicates are removed.
+    */
+    auto end = std::unique(nums.begin(), nums.end());
+
+    return std::distance(nums.begin(), end);
 }
 
 /*

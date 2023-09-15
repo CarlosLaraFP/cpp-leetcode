@@ -42,10 +42,16 @@ int main() {
     vector<int> nums = {2, 7, 11, 15};
     auto target = 9;
     const auto indices = twoSum(nums, target);
+    cout << "Two Sum:\n";
     cout << indices[0] << ", " << indices[1] << "\n";
 
+    cout << "Is Palindrome:\n";
     cout << isPalindrome(121) << "\n"; // true
     cout << isPalindrome(1217) << "\n"; // false
     cout << isPalindrome(1111) << "\n"; // true
     cout << isPalindrome(766) << "\n"; // false
+
+    cout << "Remove Duplicates:\n";
+    vector<int> duplicates_a = {1, 2, 3, 3, 3, 3, 8};
+    cout << removeDuplicates(duplicates_a) << "\n";
 }
