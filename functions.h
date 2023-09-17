@@ -96,7 +96,8 @@ int removeElement(vector<int>& nums, int val) {
     // 3,2,2,3 ; 3
     auto left = nums.begin();
 
-    // in for loops, the order of increment does not matter; the loop executes the same number of times either way.
+    // In for loops, the order of increment does not matter; the loop executes the same number of times either way.
+    // Use prefix increment when the original value isn't needed, both for potential performance reasons and to signal intent more clearly.
     for (auto right = nums.begin(); right != nums.end(); ++right) {
         if (*right != val) {
             *left = *right;
@@ -105,6 +106,30 @@ int removeElement(vector<int>& nums, int val) {
     }
 
     return std::distance(nums.begin(), left);
+}
+
+string longestCommonPrefix(vector<string>& strs) {
+    // {"flower", "flow", "flight"}
+    // {"dog", "racecar", "car"}
+    // {"", "", "hello"}
+
+    /*
+        If the first and the last strings in a sorted list share a common prefix, 
+        then every string in between must also share that prefix. 
+        If they didn't, the order wouldn't be consistent with lexicographical sorting.
+    */
+    std::sort(strs.begin(), strs.end());
+
+    auto shortest = strs.front(); // shortest string after sorting
+    auto longest = strs.back(); // longest string after sorting
+    string prefix = "";
+
+    for (auto i = 0; i < shortest.size(); ++i ){
+        if (shortest[i] == longest[i]) prefix += shortest[i];
+        else break;
+    }
+
+    return prefix;
 }
 
 /*

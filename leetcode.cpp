@@ -62,4 +62,10 @@ int main() {
     cout << removeElement(values_a, 3) << "\n"; // 2
     cout << removeElement(values_b, 2) << "\n"; // 5
     cout << removeElement(values_c, 2) << "\n"; // 2
+
+    cout << "Longest Common Prefix:\n";
+    vector<string> strs_a = {"flower", "flow", "flight"};
+    vector<string> strs_b = {"dog", "racecar", "car"};
+    cout << longestCommonPrefix(strs_a) << "\n"; // "fl"
+    cout << longestCommonPrefix(strs_b) << "\n"; // ""
 }
