@@ -54,4 +54,10 @@ int main() {
     cout << "Remove Duplicates:\n";
     vector<int> duplicates_a = {1, 2, 3, 3, 3, 3, 8};
     cout << removeDuplicates(duplicates_a) << "\n";
+
+    cout << "Remove Element:\n";
+    vector<int> values_a = {3,2,2,3};
+    vector<int> values_b = {0,1,2,2,3,0,4,2};
+    cout << removeElement(values_a, 3) << "\n"; // 2
+    cout << removeElement(values_b, 2) << "\n"; // 5
 }

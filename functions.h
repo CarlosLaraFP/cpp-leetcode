@@ -92,6 +92,20 @@ int removeDuplicates(vector<int>& nums) {
     return std::distance(nums.begin(), end);
 }
 
+int removeElement(vector<int>& nums, int val) {
+    // 3,2,2,3 ; 3
+    // 2,2,3,3
+    auto left = nums.begin();
+    
+    for (auto right = nums.begin(); right != nums.end(); ++right) {
+        if (*right != val) {
+            *left = *right;
+            ++left;
+        }
+    }
+    return std::distance(nums.begin(), left);
+}
+
 /*
   The use of static_assert along with std::is_arithmetic does not incur a runtime performance penalty. This is because these checks occur at compile-time, not at runtime.
 
