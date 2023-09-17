@@ -94,15 +94,16 @@ int removeDuplicates(vector<int>& nums) {
 
 int removeElement(vector<int>& nums, int val) {
     // 3,2,2,3 ; 3
-    // 2,2,3,3
     auto left = nums.begin();
-    
+
+    // in for loops, the order of increment does not matter; the loop executes the same number of times either way.
     for (auto right = nums.begin(); right != nums.end(); ++right) {
         if (*right != val) {
             *left = *right;
             ++left;
         }
     }
+
     return std::distance(nums.begin(), left);
 }
 

@@ -58,6 +58,8 @@ int main() {
     cout << "Remove Element:\n";
     vector<int> values_a = {3,2,2,3};
     vector<int> values_b = {0,1,2,2,3,0,4,2};
+    vector<int> values_c = {2,3,2,2,3};
     cout << removeElement(values_a, 3) << "\n"; // 2
     cout << removeElement(values_b, 2) << "\n"; // 5
+    cout << removeElement(values_c, 2) << "\n"; // 2
 }
