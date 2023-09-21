@@ -68,4 +68,11 @@ int main() {
     vector<string> strs_b = {"dog", "racecar", "car"};
     cout << longestCommonPrefix(strs_a) << "\n"; // "fl"
     cout << longestCommonPrefix(strs_b) << "\n"; // ""
+
+    cout << "Valid Parentheses:\n";
+    cout << std::boolalpha << isValid("()") << std::endl; // true
+    cout << std::boolalpha << isValid("()[]{}") << std::endl; // true
+    cout << std::boolalpha << isValid("(]") << std::endl; // false
+    cout << std::boolalpha << isValid("(([{}]{})){}") << std::endl; // true
+    cout << std::boolalpha << isValid("(){}}{") << std::endl; // false
 }

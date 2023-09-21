@@ -28,6 +28,8 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <unordered_map>
+#include <stack>
 
 using std::cout;
 using std::vector;
@@ -35,6 +37,8 @@ using std::accumulate;
 using std::string;
 using std::ifstream;
 using std::istringstream;
+using std::unordered_map;
+using std::stack;
 
 
 vector<int> twoSum(vector<int>& nums, const int target) {
@@ -130,6 +134,27 @@ string longestCommonPrefix(vector<string>& strs) {
     }
 
     return prefix;
+}
+
+bool isValid(string s) {
+    // Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+    // This is a Stack problem
+    unordered_map<char,char> map = {{')','('}, {']','['}, {'}','{'}};
+    stack<char> stack;
+
+    // map.count basically means map.exists(key)
+    if(s.length() < 2 || map.count(s[0])) return false;
+    
+    // loop through if it's not a closing paren, then place it inside the stack
+    for (int i = 0; i < s.length(); ++i)
+    {
+        // we only push onto the stack if it's an open paren
+        if (!map.count(s[i])) stack.push(s[i]);
+        else if (!stack.empty() && stack.top() == map[s[i]]) stack.pop();
+        else return false;
+    }
+    // "(){}}{"
+    return stack.empty();
 }
 
 /*
