@@ -15,10 +15,11 @@
 #include "functions.h"
 
 using std::cout;
+using std::endl;
 using std::string;
 using std::vector;
 
-// g++ -std=c++17 leetcode.cpp -o leetcode
+// g++ -std=c++17 leetcode.cpp -o leetcode && ./leetcode
 /*
   When you compile a project with g++, g++ actually performs several distinct tasks:
 
@@ -37,6 +38,7 @@ using std::vector;
   make
 */
 int main() {
+    cout << "Running unit tests..." << endl;
     // nums = [2,7,11,15], target = 9
     // [0,1]
     vector<int> nums = {2, 7, 11, 15};
@@ -45,11 +47,10 @@ int main() {
     cout << "Two Sum:\n";
     cout << indices[0] << ", " << indices[1] << "\n";
 
-    cout << "Is Palindrome:\n";
-    cout << isPalindrome(121) << "\n"; // true
-    cout << isPalindrome(1217) << "\n"; // false
-    cout << isPalindrome(1111) << "\n"; // true
-    cout << isPalindrome(766) << "\n"; // false
+    assert(isPalindrome(121) == true);
+    assert(isPalindrome(1217) == false);
+    assert(isPalindrome(1111) == true);
+    assert(isPalindrome(766) == false);
 
     cout << "Remove Duplicates:\n";
     vector<int> duplicates_a = {1, 2, 3, 3, 3, 3, 8};
@@ -75,4 +76,6 @@ int main() {
     cout << std::boolalpha << isValid("(]") << std::endl; // false
     cout << std::boolalpha << isValid("(([{}]{})){}") << std::endl; // true
     cout << std::boolalpha << isValid("(){}}{") << std::endl; // false
+
+    cout << "All unit tests passed!" << endl;
 }
